@@ -1,4 +1,4 @@
-package net.mistring.empdi
+package net.mistring.empdi.view
 
 import android.os.Bundle
 import android.view.LayoutInflater

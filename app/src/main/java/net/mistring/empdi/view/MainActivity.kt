@@ -1,4 +1,4 @@
-package net.mistring.empdi
+package net.mistring.empdi.view
 
 import android.os.Bundle
 import android.view.Menu
@@ -8,6 +8,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import net.mistring.empdi.R
 import net.mistring.empdi.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

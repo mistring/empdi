@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/EmployeeDirectoryFragment"
-        android:name="net.mistring.empdi.EmployeeDirectoryFragment"
+        android:name="net.mistring.empdi.view.EmployeeDirectoryFragment"
         android:label="@string/empdir_screen_title"
         tools:layout="@layout/fragment_employee_directory" />
 
