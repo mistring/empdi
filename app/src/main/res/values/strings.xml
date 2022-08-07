@@ -6,5 +6,6 @@
     <!-- Employee Directory Fragment -->
     <string name="empdir_screen_title">Employee Directory</string>
     <string name="empdir_heading">Employees</string>
+    <string name="employee_list_empty">No Employees Yet</string>
 
 </resources>

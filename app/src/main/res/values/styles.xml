@@ -1,0 +1,21 @@
+<resources>
+
+    <style name="EmployeeDirectoryHeading">
+        <item name="android:textAppearance">?attr/textAppearanceHeadline5</item>
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textColor">@color/headingTextColor</item>
+    </style>
+
+    <style name="ListEntryTitle">
+        <item name="android:textAppearance">?attr/textAppearanceBodyMedium</item>
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">@dimen/list_entry_text_title</item>
+    </style>
+
+    <style name="ListEntrySubTitle" parent="ListEntryTitle">
+        <item name="android:fontFamily">@font/inter_light</item>
+        <item name="android:textSize">@dimen/list_entry_text_subtitle</item>
+    </style>
+
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/employee_item_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/employee_image"
+        android:layout_width="@dimen/photo_edge"
+        android:layout_height="@dimen/photo_edge"
+        android:importantForAccessibility="no"
+        android:padding="@dimen/photo_pad"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/photo_placeholder" />
+
+    <TextView
+        android:id="@+id/employee_name"
+        style="@style/ListEntryTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/photo_pad"
+        android:paddingTop="@dimen/photo_pad"
+        android:paddingEnd="@dimen/photo_pad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/employee_image"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Full Name" />
+
+    <TextView
+        android:id="@+id/employee_team"
+        style="@style/ListEntrySubTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingStart="@dimen/photo_pad"
+        android:paddingEnd="@dimen/photo_pad"
+        android:textAppearance="?attr/textAppearanceListItem"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/employee_image"
+        app:layout_constraintTop_toBottomOf="@+id/employee_name"
+        tools:text="Team" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

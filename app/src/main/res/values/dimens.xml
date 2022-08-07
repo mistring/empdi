@@ -1,3 +1,11 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
+    <!-- DP -->
+    <dimen name="default_margin">16dp</dimen>
+    <dimen name="photo_edge">72dp</dimen>
+    <dimen name="photo_pad">8dp</dimen>
+
+    <!-- SP -->
+    <dimen name="heading">24sp</dimen>
+    <dimen name="list_entry_text_title">18sp</dimen>
+    <dimen name="list_entry_text_subtitle">14sp</dimen>
 </resources>

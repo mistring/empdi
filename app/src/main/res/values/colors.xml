@@ -14,8 +14,14 @@
     <color name="secondaryDarkColor">#babdbe</color>
 
     <!-- Text Colors -->
-    <color name="primaryTextColor">#ffffff</color>
-    <color name="secondaryTextColor">#000000</color>
+    <color name="primaryTextColor">#404040</color>
+    <color name="secondaryTextColor">#808080</color>
+    <color name="headingTextColor">#95bbdf</color>
+
+    <!-- Backgrounds -->
+    <color name="parttimeBkg">#ffffd0</color>
+    <color name="contractorBkg">#e0e0e0</color>
+    <color name="fulltimeBkg">#ffffff</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
