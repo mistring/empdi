@@ -7,10 +7,10 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.vivint.coroutines_sample.model.EmployeeEntry
-import com.vivint.coroutines_sample.model.EmployeeType
 import net.mistring.empdi.R
 import net.mistring.empdi.databinding.ListItemEmployeeBinding
+import net.mistring.empdi.view.model.EmployeeEntry
+import net.mistring.empdi.view.model.EmployeeType
 import javax.inject.Inject
 
 class EmployeeDirectoryListAdapter @Inject constructor() :
@@ -31,9 +31,10 @@ class EmployeeDirectoryListAdapter @Inject constructor() :
         holder.name.text = item.fullName
         holder.team.text = item.team
         val backgroundColor = when (item.employeeType) {
+            EmployeeType.FULL_TIME -> R.color.fulltimeBkg
             EmployeeType.PART_TIME -> R.color.parttimeBkg
             EmployeeType.CONTRACTOR -> R.color.contractorBkg
-            else -> R.color.fulltimeBkg
+            else -> R.color.white
         }
         holder.view.setBackgroundResource(backgroundColor)
     }

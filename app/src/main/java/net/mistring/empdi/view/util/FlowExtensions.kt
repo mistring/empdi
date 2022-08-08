@@ -1,4 +1,4 @@
-package com.vivint.coroutines_sample.util
+package net.mistring.empdi.view.util
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle

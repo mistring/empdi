@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">EmpDi</string>
 
-    <string name="action_settings">Settings</string>
+    <!-- Menu Items -->
+    <string name="no_sort">No-Sort Refresh</string>
+    <string name="sort_name">Sort by Name</string>
+    <string name="sort_team">Sort by Team</string>
+    <string name="malformed_list">Malformed List</string>
+    <string name="empty_list">Empty List</string>
+    <string name="bad_url">Bad URL</string>
 
     <!-- Employee Directory Fragment -->
     <string name="empdir_screen_title">Employee Directory</string>

@@ -3,6 +3,7 @@ package net.mistring.empdi.view
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -17,6 +18,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+
+    private val viewModel: SharedViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,14 +45,36 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_no_sort -> {
+                viewModel.unfilteredRefresh()
+                true
+            }
+            R.id.action_sort_name -> {
+                viewModel.sortByName()
+                true
+            }
+            R.id.action_sort_team -> {
+                viewModel.sortByTeam()
+                true
+            }
+            R.id.action_malformed_list -> {
+                viewModel.fetchMalformedList()
+                true
+            }
+            R.id.action_empty_list -> {
+                viewModel.fetchEmptyList()
+                true
+            }
+            R.id.action_bad_url -> {
+                viewModel.callBadURL()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

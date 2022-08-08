@@ -1,10 +1,21 @@
-package com.vivint.coroutines_sample.model
+package net.mistring.empdi.view.model
 
 import com.google.gson.annotations.SerializedName
 
 data class EmployeesWrapper(
-    val employees: List<EmployeeEntry>
-)
+    var employees: List<EmployeeEntry>
+) {
+
+    fun isValid() = employees.fold(0) { acc, e ->
+        if (e.uuid.isEmpty() ||
+            e.fullName.isEmpty() ||
+            e.emailAddress.isEmpty() ||
+            e.team.isEmpty() ||
+            e.employeeType == EmployeeType.UNKNOWN
+        ) acc + 1 else acc
+    } == 0
+
+}
 
 data class EmployeeEntry(
     val uuid: String = "",
@@ -29,8 +40,12 @@ data class EmployeeEntry(
     val team: String = "",
 
     @SerializedName("employee_type")
-    val employeeType: EmployeeType = EmployeeType.FULL_TIME
-)
+    val employeeType: EmployeeType = EmployeeType.UNKNOWN
+) {
+    override fun toString(): String {
+        return "EmployeeEntry(uuid='$uuid', fullName='$fullName', phoneNumber=$phoneNumber, emailAddress='$emailAddress', biography=$biography, photoUrlSmall=$photoUrlSmall, photoUrlLarge=$photoUrlLarge, team='$team', employeeType=$employeeType)"
+    }
+}
 
 enum class EmployeeType {
     @SerializedName("FULL_TIME")
@@ -40,7 +55,9 @@ enum class EmployeeType {
     PART_TIME,
 
     @SerializedName("CONTRACTOR")
-    CONTRACTOR
+    CONTRACTOR,
+
+    UNKNOWN
 }
 
 /*
