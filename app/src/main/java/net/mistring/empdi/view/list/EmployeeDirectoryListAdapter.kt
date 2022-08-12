@@ -9,8 +9,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import net.mistring.empdi.R
 import net.mistring.empdi.databinding.ListItemEmployeeBinding
-import net.mistring.empdi.view.model.EmployeeEntry
-import net.mistring.empdi.view.model.EmployeeType
+import net.mistring.empdi.model.EmployeeEntry
+import net.mistring.empdi.model.EmployeeType
 import javax.inject.Inject
 
 class EmployeeDirectoryListAdapter @Inject constructor() :

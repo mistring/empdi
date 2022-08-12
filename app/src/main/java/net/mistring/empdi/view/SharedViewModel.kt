@@ -5,8 +5,8 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
-import net.mistring.empdi.view.data.EmployeeRepository
-import net.mistring.empdi.view.model.EmployeeEntry
+import net.mistring.empdi.data.EmployeeRepository
+import net.mistring.empdi.model.EmployeeEntry
 import javax.inject.Inject
 
 /**

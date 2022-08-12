@@ -1,6 +1,6 @@
-package net.mistring.empdi.view.data
+package net.mistring.empdi.data
 
-import net.mistring.empdi.view.model.EmployeesWrapper
+import net.mistring.empdi.model.EmployeesWrapper
 import retrofit2.http.GET
 
 interface EmployeeAPI {

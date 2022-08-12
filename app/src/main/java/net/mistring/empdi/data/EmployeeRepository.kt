@@ -1,11 +1,11 @@
-package net.mistring.empdi.view.data
+package net.mistring.empdi.data
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import net.mistring.empdi.view.SharedViewModel
 import net.mistring.empdi.view.SharedViewModel.Companion.EmployeeFilter.NAME
 import net.mistring.empdi.view.SharedViewModel.Companion.EmployeeFilter.TEAM
-import net.mistring.empdi.view.model.EmployeesWrapper
+import net.mistring.empdi.model.EmployeesWrapper
 import timber.log.Timber
 import javax.inject.Inject
 

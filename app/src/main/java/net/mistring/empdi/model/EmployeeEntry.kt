@@ -1,4 +1,4 @@
-package net.mistring.empdi.view.model
+package net.mistring.empdi.model
 
 import com.google.gson.annotations.SerializedName
 

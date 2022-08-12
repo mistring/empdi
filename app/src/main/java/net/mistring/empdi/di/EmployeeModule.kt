@@ -1,10 +1,10 @@
-package net.mistring.empdi.view.di
+package net.mistring.empdi.di
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import net.mistring.empdi.view.data.EmployeeAPI
+import net.mistring.empdi.data.EmployeeAPI
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

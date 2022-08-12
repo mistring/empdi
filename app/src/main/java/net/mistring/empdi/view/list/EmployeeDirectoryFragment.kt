@@ -12,7 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import net.mistring.empdi.databinding.FragmentEmployeeDirectoryBinding
 import net.mistring.empdi.view.EmployeeUiState
 import net.mistring.empdi.view.SharedViewModel
-import net.mistring.empdi.view.util.collectLatestLifecycleFlow
+import net.mistring.empdi.util.collectLatestLifecycleFlow
 import timber.log.Timber
 import javax.inject.Inject
 
