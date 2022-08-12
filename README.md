@@ -5,8 +5,9 @@ Employee Directory
 ## (Build tools & versions used)
 
 I created this app using Android Studio and compiled against Android SDK version 32. The minimum
-supported SDK is version 24, to maximize the number of compatible devices. Various google
-dependencies (and Kotlin coroutines) were used, as well as:
+supported SDK is version 24, to maximize the number of compatible devices.
+
+Various google dependencies (and Kotlin coroutines) were used, as well as:
 
 - Glide (4.11.0) for image fetching, caching, and manipulation
 - Timber (5.0.1) for logging, with a custom DebugTree that I've used for several years
@@ -15,8 +16,10 @@ dependencies (and Kotlin coroutines) were used, as well as:
 ## (Steps to run the app)
 
 The sourcecode for this project is found
-in [this public GitHub repository](https://github.com/mistring/empdi). When the repository is pulled
-down, it can be opened in Android Studio, and run via emulator or physical device.
+in [this public GitHub repository](https://github.com/mistring/empdi).
+
+When the repository is pulled down, it can be opened in Android Studio, and run via emulator or
+physical device.
 
 ## (What areas of the app did you focus on?)
 
@@ -47,13 +50,13 @@ I focused on the following areas:
 
 ## (How long did you spend on this project?)
 
-I spent close to 6 hours on this project, most of which were on a Saturday. Some of the time was
-deciding which functional routes to take, and ensuring that I wasn't adding more functionality than
-described in the requirements document.
+I spent close to six hours on this project, most of which was spent on a Saturday. Some of the time
+was deciding which functional routes to take, and ensuring that I wasn't adding more functionality
+than described in the requirements document.
 
 ## (Did you make any trade-offs for this project? What would you have done differently with more time?)
 
-I focused on teh architecture and the UI the app, and kept the unit tests for the last. If more time
+I focused on teh architecture and the UI the app, and kept the unit tests for the end. If more time
 were available, and other teams such as Product, Design, and Testing were available, I would have
 coordinated with these groups before plunging into the UX of the solution. The result of this was a
 quicker solution, but the trade-offs were that everything was done according to my understanding of
@@ -77,7 +80,9 @@ cover the ViewModel, etc.
 While working on the UI and Networking components, I made use of a Mock Rest API Framework
 called [Mockoon](https://mockoon.com/) to help with testing against various data formats. It helped
 to simulate empty, malformed, and successful JSON responses without having to wire up multiple paths
-to trigger the various endpoints provided. Eventually, I did add menu items to exercise the live
-endpoints, but I was able to make great progress without having the server wired up for each
-endpoint. This allowed me to focus on a targeted aspect of the code at a time. Instead of having a
-complete netowrk, repository, and view layer, I can build them incrementally. 
+to trigger the various endpoints provided.
+
+Eventually, I did add menu items to exercise the live endpoints, but I was able to make great
+progress without having the server wired up for each endpoint. This allowed me to focus on a
+targeted aspect of the code at a time. Instead of having a complete netowrk, repository, and view
+layer, I can build them incrementally. 
