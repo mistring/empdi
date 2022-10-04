@@ -1,5 +1,7 @@
 package net.mistring.empdi.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 data class EmployeesWrapper(
@@ -17,7 +19,10 @@ data class EmployeesWrapper(
 
 }
 
+@Entity
 data class EmployeeEntry(
+
+    @PrimaryKey
     val uuid: String = "",
 
     @SerializedName("full_name")

@@ -2,10 +2,11 @@ package net.mistring.empdi.data
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import net.mistring.empdi.model.EmployeesWrapper
+import net.mistring.empdi.model.UserDatabase
 import net.mistring.empdi.view.SharedViewModel
 import net.mistring.empdi.view.SharedViewModel.Companion.EmployeeFilter.NAME
 import net.mistring.empdi.view.SharedViewModel.Companion.EmployeeFilter.TEAM
-import net.mistring.empdi.model.EmployeesWrapper
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -18,7 +19,8 @@ import javax.inject.Inject
  * - DataStore
  */
 class EmployeeRepository @Inject constructor(
-    private val api: EmployeeAPI
+    private val api: EmployeeAPI,
+    private val db: UserDatabase
 ) {
 
     suspend fun getEmployeeDirectory(filter: SharedViewModel.Companion.EmployeeFilter): Flow<Result<EmployeesWrapper>> {
@@ -41,12 +43,29 @@ class EmployeeRepository @Inject constructor(
                     }
                     else -> {
                         Timber.d("Calling base endpoint")
-                        api.getEmployees()
+
+                        val userCount = db.userDao().userCount()
+                        if (userCount > 0) {
+                            Timber.d("Calling base endpoint DB")
+                            EmployeesWrapper(db.userDao().getUsers())
+                        } else {
+                            Timber.d("Calling base endpoint NET")
+                            api.getEmployees()
+                        }
+
                     }
 
                 }
 
                 if (employeesWrapper.isValid()) {
+
+                    employeesWrapper.employees.forEach { employee ->
+                        db.userDao().insertUser(employee)
+                    }
+
+                    val userCount = db.userDao().userCount()
+                    Timber.d("userCount=$userCount")
+
                     // Apply sorting, if needed
                     if (filter == NAME) {
                         employeesWrapper.employees =
