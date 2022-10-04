@@ -2,6 +2,7 @@ package net.mistring.empdi.data
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import net.mistring.empdi.model.EmployeeEntry
 import net.mistring.empdi.model.EmployeesWrapper
 import net.mistring.empdi.model.UserDatabase
 import net.mistring.empdi.view.SharedViewModel
@@ -80,6 +81,20 @@ class EmployeeRepository @Inject constructor(
                     emit(Result.failure(throw Exception("Malformed Employee Directory")))
                 }
 
+
+            } catch (e: Exception) {
+                Timber.e("API failure: $e")
+                emit(Result.failure(e))
+            }
+        }
+    }
+
+    suspend fun getEmployee(userId:String): Flow<Result<EmployeeEntry>> {
+        return flow {
+            try {
+
+                val user = db.userDao().getUser(userId)
+                emit(Result.success(user))
 
             } catch (e: Exception) {
                 Timber.e("API failure: $e")

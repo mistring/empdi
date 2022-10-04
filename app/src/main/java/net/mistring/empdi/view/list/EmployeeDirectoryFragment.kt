@@ -6,15 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import net.mistring.empdi.databinding.FragmentEmployeeDirectoryBinding
+import net.mistring.empdi.util.collectLatestLifecycleFlow
 import net.mistring.empdi.view.EmployeeUiState
 import net.mistring.empdi.view.SharedViewModel
-import net.mistring.empdi.util.collectLatestLifecycleFlow
 import timber.log.Timber
-import javax.inject.Inject
 
 /**
  * The main fragment screen of the app. Shows Employee Directory and loading indicator.
@@ -27,7 +27,6 @@ class EmployeeDirectoryFragment : Fragment() {
 
     private val viewModel: SharedViewModel by activityViewModels()
 
-    @Inject
     lateinit var listAdapter: EmployeeDirectoryListAdapter
 
     override fun onCreateView(
@@ -43,6 +42,18 @@ class EmployeeDirectoryFragment : Fragment() {
 
         binding.employeeList.apply {
             layoutManager = LinearLayoutManager(requireContext())
+
+            listAdapter = EmployeeDirectoryListAdapter { user ->
+                val userId = user.uuid
+
+                val action =
+                    EmployeeDirectoryFragmentDirections.actionEmployeeDirectoryFragmentToEmployeeDetailFragment(
+                        userId
+                    )
+
+                findNavController().navigate(action)
+            }
+
             adapter = listAdapter
         }
         binding.employeeWrapper.setOnRefreshListener {

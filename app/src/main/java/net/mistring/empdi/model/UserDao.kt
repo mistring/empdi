@@ -19,5 +19,8 @@ interface UserDao {
     @Query("SELECT * FROM EmployeeEntry")
     suspend fun getUsers(): List<EmployeeEntry>
 
+    @Query("SELECT * FROM EmployeeEntry where uuid = :userId")
+    suspend fun getUser(userId: String): EmployeeEntry
+
 
 }

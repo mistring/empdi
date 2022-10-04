@@ -82,6 +82,22 @@ class SharedViewModel @Inject constructor(
         fetchEmployees(EmployeeFilter.BAD_RUL)
     }
 
+    fun fetchEmployee(userId: String) {
+        viewModelScope.launch {
+            repository.getEmployee(userId)
+                .collectLatest { result ->
+                    if (result.isSuccess) {
+                        result.getOrNull()?.let { user ->
+                            _uiState.value = EmployeeUiState.UserSuccess(user)
+                        }
+                    } else {
+                        //handle failure in UI as necessary
+                        _uiState.value = EmployeeUiState.Error(result.exceptionOrNull())
+                    }
+                }
+        }
+    }
+
     companion object {
         // Available Employee Directory Filter options
         enum class EmployeeFilter {
@@ -93,5 +109,6 @@ class SharedViewModel @Inject constructor(
 
 sealed class EmployeeUiState {
     data class Success(val employees: List<EmployeeEntry>) : EmployeeUiState()
+    data class UserSuccess(val employee: EmployeeEntry) : EmployeeUiState()
     data class Error(val exception: Throwable?) : EmployeeUiState()
 }

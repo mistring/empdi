@@ -11,9 +11,10 @@ import net.mistring.empdi.R
 import net.mistring.empdi.databinding.ListItemEmployeeBinding
 import net.mistring.empdi.model.EmployeeEntry
 import net.mistring.empdi.model.EmployeeType
-import javax.inject.Inject
 
-class EmployeeDirectoryListAdapter @Inject constructor() :
+class EmployeeDirectoryListAdapter(
+    private val listener: (EmployeeEntry) -> Unit
+) :
     RecyclerView.Adapter<EmployeeDirectoryListAdapter.EmployeeViewHolder>() {
 
     private val employeeList = arrayListOf<EmployeeEntry>()
@@ -37,6 +38,9 @@ class EmployeeDirectoryListAdapter @Inject constructor() :
             else -> R.color.white
         }
         holder.view.setBackgroundResource(backgroundColor)
+        holder.rootView.setOnClickListener {
+            listener(item)
+        }
     }
 
     private fun ImageView.loadImage(uri: String?) {
@@ -62,5 +66,6 @@ class EmployeeDirectoryListAdapter @Inject constructor() :
         val name = binding.employeeName
         val team = binding.employeeTeam
         val view = binding.employeeItemRoot
+        val rootView = binding.employeeItemRoot
     }
 }

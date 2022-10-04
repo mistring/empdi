@@ -14,4 +14,8 @@
     <string name="empdir_heading">Employees</string>
     <string name="employee_list_empty">No Employees Yet</string>
 
+
+    <!-- Employee Detail Fragment -->
+    <string name="emp_detail_screen_title">Employee Details</string>
+
 </resources>

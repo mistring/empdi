@@ -9,6 +9,25 @@
         android:id="@+id/EmployeeDirectoryFragment"
         android:name="net.mistring.empdi.view.list.EmployeeDirectoryFragment"
         android:label="@string/empdir_screen_title"
-        tools:layout="@layout/fragment_employee_directory" />
+        tools:layout="@layout/fragment_employee_directory">
+
+        <action
+            android:id="@+id/action_EmployeeDirectoryFragment_to_EmployeeDetailFragment"
+            app:destination="@id/EmployeeDetailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/EmployeeDetailFragment"
+        android:name="net.mistring.empdi.view.detail.EmployeeDetailFragment"
+        android:label="@string/emp_detail_screen_title"
+        tools:layout="@layout/fragment_employee_detail">
+
+        <argument
+            android:name="userId"
+            android:defaultValue=""
+            app:argType="string" />
+
+    </fragment>
 
 </navigation>
